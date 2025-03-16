@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicChutney - Uptime checker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; background: #f8f9fa; }
+    .header { background: #2c3e50; color: white; text-align: center; padding: 15px; font-size: 24px; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    .logo { height: 40px; margin-right: 10px; }
+    .footer { background: #2c3e50; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; z-index: 1000; }
+    .menu { position: fixed; top: 0; left: 0; height: 100%; width: 250px; background: #34495e; padding: 15px; transform: translateX(-100%); transition: transform 0.3s ease-in-out; color: white; z-index: 1000; }
+    .menu.show { transform: translateX(0); }
+    .menu ul { list-style: none; padding: 0; }
+    .menu ul li { padding: 12px; border-bottom: 1px solid #4a5a6a; }
+    .menu ul li a { color: white; text-decoration: none; display: block; font-size: 16px; }
+    .menu-button { background: #2c3e50; color: white; padding: 12px; position: fixed; top: 15px; left: 15px; cursor: pointer; border: none; z-index: 1100; border-radius: 5px; }
+    .ad-sidebar { position: fixed; top: 0; right: 0; height: 100%; width: 250px; background: #ecf0f1; padding: 20px; color: #2c3e50; text-align: center; font-weight: bold; }
+    .content-wrapper { display: flex; flex-grow: 1; margin-top: 70px; padding: 0; height: calc(100vh - 120px); justify-content: center; align-items: center; }
+    .content { flex-grow: 1; display: flex; justify-content: center; align-items: center; background: white; border-radius: 8px; padding: 0; width: calc(100% - 500px); height: 100%; max-width: none; margin-left: 250px; margin-right: 250px; overflow: hidden; }
+    .iframe-container { width: 100%; height: 100%; border: none; overflow: auto; transform: scale(0.9); transform-origin: top left; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="cosmicchutney.webp" alt="Cosmic Chutney Logo" class="logo">
+    Cosmic Chutney
+  </div>
+  <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+  <div class="menu" id="menu" onclick="collapseMenu(event)">
+    <ul>
+      <li><a href="#"></a></li>
+      <li><a href="https://www.cosmicchutney.space/">Home</a></li>
+      <li><a href="https://qr.cosmicchutney.space/">QR code generator</a></li>
+      <li><a href="https://jsonparser.cosmicchutney.space/">JSON parser</a></li>
+      <li><a href="https://json-generator.cosmicchutney.space/">JSON generator</a></li>
+      <li><a href="https://metric-converter.cosmicchutney.space/">Metric Converter</a></li>
+      <li><a href="https://whatsmybrowser.cosmicchutney.space/">My browser & OS</a></li>
+      <li><a href="https://uptime-checker.cosmicchutney.space/">Check URL uptime and Response</a></li>
+      <li><a href="https://gearing-calc.cosmicchutney.space/">Prop gearing calculator</a></li>
+    </ul>
+  </div>
+  <div class="content-wrapper">
+    <div class="content">
+      <iframe src="https://uptime-checker.cdntest.workers.dev/" id="pageFrame" class="iframe-container"></iframe>
+    </div>
+    <div class="ad-sidebar">Ad Space</div>
+  </div>
+  <div class="footer">
+    © 2025 CosmicChutney. All Rights Reserved. |
+    <a href="#about" style="color: white; text-decoration: none; margin: 0 10px;">About Us</a> |
+    <a href="#contact" style="color: white; text-decoration: none; margin: 0 10px;">Contact Us</a> |
+    <a href="#ideas" style="color: white; text-decoration: none; margin: 0 10px;">Ideas?</a>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    function collapseMenu(event) {
+      if (event.target.tagName !== 'A') {
+        document.getElementById('menu').classList.remove('show');
+      }
+    }
+
+    function loadPage(url) {
+      document.getElementById('pageFrame').src = url;
+    }
+  </script>
+</body>
+</html>
