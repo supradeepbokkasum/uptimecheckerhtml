@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CosmicChutney - Uptime checker</title>
-  <link rel="stylesheet" href="https://supradeepbokkasum.github.io/cosmicchutney-assets/css/common.css">
-  <script src="https://supradeepbokkasum.github.io/cosmicchutney-assets/js/common.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading...</title> <!-- will be replaced via JS -->
+  <link rel="stylesheet" href="https://supradeepbokkasum.github.io/cosmicchutney-assets/css/common.css" />
+  <script>
+     window.pageConfig = {
+      title: "CosmicChutney - Uptime Checker",
+      iframeUrl: "https://uptime-checker.cdntest.workers.dev/",
+      headerTitle: "Uptime Checker"
+    };
+  </script>
+  <script src="https://supradeepbokkasum.github.io/cosmicchutney-assets/js/common.js" defer></script>
 </head>
 <body>
   <div class="header">
-    <img src="cosmicchutney.webp" alt="Cosmic Chutney Logo" class="logo">
-    Cosmic Chutney
+    <img src="/cosmicchutney.webp" alt="Cosmic Chutney Logo" class="logo" />
+    <span id="headerTitle">Cosmic Chutney</span>
   </div>
+
   <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
   <div id="menu-container"></div>
+
   <div class="content-wrapper">
     <div class="content">
-      <iframe src="https://uptime-checker.cdntest.workers.dev/" id="pageFrame" class="iframe-container"></iframe>
+      <iframe id="pageFrame" class="iframe-container" title="Tool iframe"></iframe>
     </div>
     <div class="ad-sidebar">Ad Space</div>
   </div>
+
   <div class="footer">
     © 2025 CosmicChutney. All Rights Reserved. |
     <a href="#about" style="color: white; text-decoration: none; margin: 0 10px;">About Us</a> |
